@@ -1,3 +1,32 @@
 {% extends "base.html" %}
 
-{% block content %}cars{% endblock %}
+{% block content %}<h1>Cars</h1>
+
+  <table class="table" style="max-width: 1000px">
+    <thead>
+    <tr>
+      <th scope="col">Model</th>
+      <th scope="col">Manufacturer</th>
+      <th scope="col">Drivers</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for car in car_list %}
+      <tr>
+        <td><a href="/cars/{{ car.pk }}">{{ car.model }}</a></td>
+        <td>{{ car.manufacturer.name }}</td>
+        <td>
+          {% for driver in car.drivers.all %}
+            {{ driver.username }}
+            {% if not forloop.last %}
+              ,<br>
+            {% endif %}
+          {% endfor %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
+

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <table class="table" style="max-width: 1000px">
+    <thead>
+    <tr>
+      <th scope="col">Manufacturer name</th>
+      <th scope="col">Manufacturer country</th>
+      <th scope="col">Drivers</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{ car.manufacturer.name }}</td>
+      <td>{{ car.manufacturer.country }}</td>
+      <td>
+        {% for driver in car.drivers.all %}
+          {{ driver.username }}{% if not forloop.last %},<br>
+          {% endif %}
+        {% endfor %}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+{% endblock %}

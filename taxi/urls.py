@@ -6,10 +6,9 @@ urlpatterns = [
     path("", index, name="index"),
     path("manufacturers/", ManufacturerListView.as_view(), name="manufacturers-list"),
     path("cars/", CarListView.as_view(), name="cars-list"),
-    #cars/pk/ - car detail view;
+    path("cars/<int:pk>", CarDetailView.as_view(), name="car-detail"),
     path("drivers/", DriverListView.as_view(), name="drivers-list"),
-    #drivers/pk/ - driver detail view.
-    #https://mate.academy/learn/django/django-class-based-generic-views?section=video&videoId=3131
+    path("drivers/<int:pk>", DriverDetailView.as_view(), name="driver-detail"),
 ]
 
 app_name = "taxi"

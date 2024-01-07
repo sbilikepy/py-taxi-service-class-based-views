@@ -20,3 +20,10 @@ class Car(models.Model):
         Manufacturer, on_delete=models.CASCADE, related_name="cars"
     )
     drivers = models.ManyToManyField(Driver, related_name="cars")
+
+
+    def __str__(self):
+        return self.model
+
+    class Meta:
+        pass
