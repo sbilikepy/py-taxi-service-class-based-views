@@ -1,29 +1,9 @@
 {% extends "base.html" %}
-
 {% block content %}
-  driver with pk:
-  <p>Create DriverDetailView detail view.
-
-    Set model and queryset.</p>
-
-  <p>In this view, you display
-    information about cars of the driver.
-    Optimize query: don't make a query
-    for a manufacturer for each car (N+1 problem).
-  </p>
-
-
-  <p>{{ object.username }} has cars: <br>
-    iter block</p>
-
-
+  <p>{{ object.first_name }} {{ object.last_name }} has next cars:</p><br>
   {% for car in driver.cars.all %}
     <a href="/cars/{{ car.pk }}">{{ car.model }}</a>
-    {% if not forloop.last %},<br>
+    {% if not forloop.last %}<br>
     {% endif %}
-
   {% endfor %}
-
-
-
 {% endblock %}

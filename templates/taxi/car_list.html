@@ -6,6 +6,7 @@
     <thead>
     <tr>
       <th scope="col">Model</th>
+      <th scope="col">ID</th>
       <th scope="col">Manufacturer</th>
       <th scope="col">Drivers</th>
     </tr>
@@ -13,13 +14,14 @@
     <tbody>
     {% for car in car_list %}
       <tr>
-        <td><a href="/cars/{{ car.pk }}">{{ car.model }}</a></td>
+        <td>{{ car.model }}</td>
+        <td><a href="/cars/{{ car.pk }}">{{ car.pk }}</a></td>
         <td>{{ car.manufacturer.name }}</td>
         <td>
           {% for driver in car.drivers.all %}
-            {{ driver.username }}
+            {{ driver.first_name }} {{ driver.last_name }}
             {% if not forloop.last %}
-              ,<br>
+              <br>
             {% endif %}
           {% endfor %}
         </td>
