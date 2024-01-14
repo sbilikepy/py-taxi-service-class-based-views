@@ -19,9 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-                  path("", include("taxi.urls", namespace="taxi")),
-                  path("admin/", admin.site.urls),
-                  path("accounts/",
-                       include("accounts.urls", namespace="accounts")),
-              ] + static(settings.STATIC_URL,
-                         document_root=settings.STATIC_ROOT)
+    path("", include("taxi.urls", namespace="taxi")),
+    path("admin/", admin.site.urls),
+    path("accounts/", include("accounts.urls", namespace="accounts")),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
