@@ -16,8 +16,7 @@ def login_view(request: HttpRequest) -> HttpResponse:
             login(request, user)
             print(f"{user} logged in")
             return HttpResponseRedirect(reverse("taxi:index"))
-        return HttpResponse("POST")
-    return HttpResponse("404")
+    return HttpResponseRedirect(reverse("taxi:index"))
 
 
 def logout_view(request: HttpRequest) -> HttpResponse:
