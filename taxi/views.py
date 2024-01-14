@@ -14,9 +14,8 @@ def index(request):
         "num_drivers": Driver.objects.count(),
         "num_cars": Car.objects.count(),
         "num_manufacturers": Manufacturer.objects.count(),
-        "num_visits": request.session["num_visits"]
+        "num_visits": request.session["num_visits"],
     }
-
 
     return render(request, "taxi/index.html", context=context)
 
@@ -24,8 +23,7 @@ def index(request):
 def test_session_view(request: HttpRequest) -> HttpResponse:
     # request.session["book"] = "test session book" #dict
     return HttpResponse(
-        "<h1>Session</h1>"
-        f"<h4>Session data: {request.session['book']}</h4>"
+        "<h1>Session</h1>" f"<h4>Session data: {request.session['book']}</h4>"
     )
 
 
